@@ -37,19 +37,21 @@ Auto-selected Epic: {ARGUMENT} (has incomplete stories)
 Read sprint-status.yaml, collect all incomplete stories under specified Epic:
 
 ```
-Task(
-  subagent_type: general-purpose,
-  description: "Collect Epic {ARGUMENT} story list",
-  prompt: "Read _bmad-output/implementation-artifacts/sprint-status.yaml (or docs/sprint/sprint-status.yaml), collect all stories for Epic {ARGUMENT}:
+task(
+  category="quick",
+  load_skills=[],
+  description="Collect Epic {ARGUMENT} story list",
+  prompt="Read _bmad-output/implementation-artifacts/sprint-status.yaml (or docs/sprint/sprint-status.yaml), collect all stories for Epic {ARGUMENT}:
 
-1. Filter entries with key format '{ARGUMENT}-Y-story-name'
+1. Filter entries with key format '{ARGUMENT}-Y-*' (story IDs use hyphen: e.g. 1-1, 1-2)
 2. Keep only stories with status not 'done'
 3. Sort by Story number Y ascending
 4. Return story list with format:
-   - Story number: 'X.Y', Story name, Current status
+   - Story ID: '{ARGUMENT}-Y', Story name, Current status
    - Number of incomplete stories
 
-If no incomplete stories found, return 'Epic {ARGUMENT} has no incomplete stories'"
+If no incomplete stories found, return 'Epic {ARGUMENT} has no incomplete stories'",
+  run_in_background=false
 )
 ```
 
@@ -57,10 +59,10 @@ If no incomplete stories found, return 'Epic {ARGUMENT} has no incomplete storie
 ```
 Epic {ARGUMENT} - Story List
 
-   Story  | Name                    | Status
-   -------|-------------------------|--------
-   {ARG}.1 | {story-name-1}         | backlog
-   {ARG}.3 | {story-name-3}         | in-progress
+   Story   | Name                    | Status
+   --------|-------------------------|--------
+   {ARG}-1 | {story-name-1}         | backlog
+   {ARG}-3 | {story-name-3}         | in-progress
    ...
 
    Total: {N} incomplete stories

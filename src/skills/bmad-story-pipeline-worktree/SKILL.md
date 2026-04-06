@@ -41,12 +41,14 @@ Read and execute steps from **references/workflow-steps.md**.
 For each step, use Task tool:
 
 ```
-Task(
-  subagent_type: "general-purpose",
-  description: "<Step description> for {STORY_ID} in worktree",
-  prompt: "Working in worktree at .worktrees/story-{STORY_ID}/
+task(
+  category="quick",
+  load_skills=["bmad-create-story", "bmad-dev-story", "bmad-code-review", "bmad-testarch-atdd", "bmad-testarch-trace"],
+  description="<Step description> for {STORY_ID} in worktree",
+  prompt="Working in worktree at .worktrees/story-{STORY_ID}/
 Execute the command: <COMMAND_WITH_STORY_ID> yolo
-Return: 1) Step completion status 2) Key outputs 3) Any issues"
+Return: 1) Step completion status 2) Key outputs 3) Any issues",
+  run_in_background=false
 )
 ```
 
@@ -128,11 +130,11 @@ Story [{STORY_ID}] Pipeline Progress:
 
 Phase 1: Worktree Setup - DONE
 Phase 2: Pipeline Steps
-  [1/5] Create Story - PASS
-  [2/5] ATDD Tests - PASS
-  [3/5] Development - PASS
-  [4/5] Code Review - PASS
-  [5/5] Trace Coverage - PASS
+  [1/N] Create Story - PASS
+  [2/N] ATDD Tests - PASS
+  [3/N] Development - PASS
+  [4/N] Code Review - PASS
+  [5/N] Trace Coverage - PASS
 Phase 3: Merge - DONE
 Phase 4: Status Update - DONE
 
@@ -142,4 +144,5 @@ Story {STORY_ID}: COMPLETE
 ## Configuration
 
 Pipeline steps are configured in **references/workflow-steps.md**.
-Both bmad-story-pipeline and this skill share the same step definitions.
+Both bmad-story-pipeline and this skill start with identical default step definitions,
+but they are separate files — changes to one do not affect the other.

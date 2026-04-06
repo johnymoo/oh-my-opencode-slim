@@ -32,7 +32,7 @@ Or without a story number (auto-selects first incomplete story):
 
 ### Running a Story Pipeline
 
-Deliver a complete story (create → dev → review → test)trace) in one command:
+Deliver a complete story (create → dev → review → test → trace) in one command:
 
 ```
 /bmad-story-pipeline 1-1
@@ -177,19 +177,28 @@ project_knowledge: "_bmad-output/project-knowledge"
 
 The story pipeline reads steps from `src/skills/bmad-story-pipeline/references/workflow-steps.md`. After installation, this file lives at `~/.config/opencode/skills/bmad-story-pipeline/references/workflow-steps.md`.
 
-Edit it to customize which steps run and in what order:
+Edit it to customize which steps run and in what order. The file uses Markdown headings with `- Command:` bullets:
 
-```yaml
-- command: /bmad-create-story {STORY_ID} yolo
-  description: Create user story
-- command: /bmad-testarch-atdd {STORY_ID} yolo
-  description: Generate ATDD tests
-- command: /bmad-dev-story {STORY_ID} yolo
-  description: Develop user story
-- command: /bmad-code-review {STORY_ID} yolo
-  description: Code review
-- command: /bmad-testarch-trace {STORY_ID} yolo
-  description: Trace test coverage
+```md
+### Step 1: Create User Story
+- Command: `/bmad-create-story {STORY_ID} yolo`
+- Description: Create user story
+
+### Step 2: Generate ATDD Tests
+- Command: `/bmad-testarch-atdd {STORY_ID} yolo`
+- Description: Generate ATDD tests
+
+### Step 3: Development
+- Command: `/bmad-dev-story {STORY_ID} yolo`
+- Description: Develop user story
+
+### Step 4: Code Review
+- Command: `/bmad-code-review {STORY_ID} yolo`
+- Description: Code review
+
+### Step 5: Trace Test Coverage
+- Command: `/bmad-testarch-trace {STORY_ID} yolo`
+- Description: Trace test coverage
 ```
 
 ## Troubleshooting

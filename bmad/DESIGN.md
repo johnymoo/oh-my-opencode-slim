@@ -18,7 +18,7 @@ OMO Orchestrator (depth 0)
         ├── bmad-ux (Sally) — UX design
         ├── bmad-writer (Paige) — documentation
         ├── bmad-sm — sprint management
-        └── bmad-mentor — retrospective, course correction
+        └── bmad-qa — test engineering
 ```
 
 ## Thin-Adapter Pattern
