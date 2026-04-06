@@ -13,6 +13,16 @@ export const SUBAGENT_NAMES = [
   'council',
   'councillor',
   'council-master',
+  'bmad-orchestrator',
+  'bmad-analyst',
+  'bmad-writer',
+  'bmad-pm',
+  'bmad-ux',
+  'bmad-architect',
+  'bmad-dev',
+  'bmad-reviewer',
+  'bmad-qa',
+  'bmad-sm',
 ] as const;
 
 export const ORCHESTRATOR_NAME = 'orchestrator' as const;
@@ -37,10 +47,22 @@ export const ORCHESTRATABLE_AGENTS = [
   'designer',
   'fixer',
   'council',
+  'bmad-orchestrator',
 ] as const;
 
 export const SUBAGENT_DELEGATION_RULES: Record<AgentName, readonly string[]> = {
-  orchestrator: ORCHESTRATABLE_AGENTS,
+  orchestrator: [
+    ...ORCHESTRATABLE_AGENTS,
+    'bmad-analyst',
+    'bmad-writer',
+    'bmad-pm',
+    'bmad-ux',
+    'bmad-architect',
+    'bmad-dev',
+    'bmad-reviewer',
+    'bmad-qa',
+    'bmad-sm',
+  ],
   fixer: [],
   designer: [],
   explorer: [],
@@ -49,6 +71,31 @@ export const SUBAGENT_DELEGATION_RULES: Record<AgentName, readonly string[]> = {
   council: [],
   councillor: [],
   'council-master': [],
+  'bmad-orchestrator': [
+    'bmad-analyst',
+    'bmad-writer',
+    'bmad-pm',
+    'bmad-ux',
+    'bmad-architect',
+    'bmad-dev',
+    'bmad-reviewer',
+    'bmad-qa',
+    'bmad-sm',
+    'explorer',
+    'librarian',
+    'oracle',
+    'designer',
+    'fixer',
+  ],
+  'bmad-analyst': [],
+  'bmad-writer': [],
+  'bmad-pm': [],
+  'bmad-ux': [],
+  'bmad-architect': ['explorer', 'librarian', 'oracle'],
+  'bmad-dev': ['explorer', 'librarian', 'fixer'],
+  'bmad-reviewer': ['explorer'],
+  'bmad-qa': ['explorer', 'fixer'],
+  'bmad-sm': [],
 };
 
 // Default models for each agent
@@ -63,6 +110,16 @@ export const DEFAULT_MODELS: Record<AgentName, string | undefined> = {
   council: 'openai/gpt-5.4-mini',
   councillor: 'openai/gpt-5.4-mini',
   'council-master': 'openai/gpt-5.4-mini',
+  'bmad-orchestrator': 'openai/gpt-5.4',
+  'bmad-analyst': 'openai/gpt-5.4',
+  'bmad-writer': 'openai/gpt-5.4-mini',
+  'bmad-pm': 'openai/gpt-5.4-mini',
+  'bmad-ux': 'openai/gpt-5.4',
+  'bmad-architect': 'openai/gpt-5.4',
+  'bmad-dev': 'openai/gpt-5.4',
+  'bmad-reviewer': 'anthropic/claude-sonnet-4-20250514',
+  'bmad-qa': 'openai/gpt-5.4-mini',
+  'bmad-sm': 'openai/gpt-5.4-mini',
 };
 
 // Polling configuration

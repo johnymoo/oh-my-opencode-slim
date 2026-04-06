@@ -34,6 +34,25 @@ export const CUSTOM_SKILLS: CustomSkill[] = [
     allowedAgents: ['orchestrator', 'explorer'],
     sourcePath: 'src/skills/cartography',
   },
+  {
+    name: 'bmad-story-pipeline',
+    description: 'BMAD configurable pipeline for single story delivery',
+    allowedAgents: ['bmad-orchestrator', 'orchestrator'],
+    sourcePath: 'src/skills/bmad-story-pipeline',
+  },
+  {
+    name: 'bmad-story-pipeline-worktree',
+    description:
+      'BMAD configurable pipeline for story delivery in isolated git worktree',
+    allowedAgents: ['bmad-orchestrator', 'orchestrator'],
+    sourcePath: 'src/skills/bmad-story-pipeline-worktree',
+  },
+  {
+    name: 'bmad-epic-pipeline',
+    description: 'BMAD batch epic delivery - runs story pipelines sequentially',
+    allowedAgents: ['bmad-orchestrator', 'orchestrator'],
+    sourcePath: 'src/skills/bmad-epic-pipeline',
+  },
 ];
 
 /**

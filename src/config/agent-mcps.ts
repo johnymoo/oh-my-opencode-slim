@@ -17,6 +17,16 @@ export const DEFAULT_AGENT_MCPS: Record<AgentName, string[]> = {
   council: [],
   councillor: [],
   'council-master': [],
+  'bmad-orchestrator': ['*'],
+  'bmad-analyst': ['websearch', 'context7'],
+  'bmad-writer': [],
+  'bmad-pm': [],
+  'bmad-ux': [],
+  'bmad-architect': ['websearch', 'context7', 'grep_app'],
+  'bmad-dev': ['websearch', 'context7', 'grep_app'],
+  'bmad-reviewer': [],
+  'bmad-qa': [],
+  'bmad-sm': [],
 };
 
 /**
