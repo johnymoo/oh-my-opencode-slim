@@ -1563,6 +1563,16 @@ describe('BackgroundTaskManager', () => {
         'designer',
         'fixer',
         'council',
+        'bmad-orchestrator',
+        'bmad-analyst',
+        'bmad-writer',
+        'bmad-pm',
+        'bmad-ux',
+        'bmad-architect',
+        'bmad-dev',
+        'bmad-reviewer',
+        'bmad-qa',
+        'bmad-sm',
       ]);
 
       // Fixer -> empty (leaf node)
@@ -1623,6 +1633,16 @@ describe('BackgroundTaskManager', () => {
         'designer',
         'fixer',
         'council',
+        'bmad-orchestrator',
+        'bmad-analyst',
+        'bmad-writer',
+        'bmad-pm',
+        'bmad-ux',
+        'bmad-architect',
+        'bmad-dev',
+        'bmad-reviewer',
+        'bmad-qa',
+        'bmad-sm',
       ]);
     });
   });

@@ -10,6 +10,16 @@ import {
 } from '../config';
 import { getAgentMcpList } from '../config/agent-mcps';
 
+import { createBmadAnalystAgent } from './bmad-analyst';
+import { createBmadArchitectAgent } from './bmad-architect';
+import { createBmadDevAgent } from './bmad-dev';
+import { createBmadOrchestratorAgent } from './bmad-orchestrator';
+import { createBmadPmAgent } from './bmad-pm';
+import { createBmadQaAgent } from './bmad-qa';
+import { createBmadReviewerAgent } from './bmad-reviewer';
+import { createBmadSmAgent } from './bmad-sm';
+import { createBmadUxAgent } from './bmad-ux';
+import { createBmadWriterAgent } from './bmad-writer';
 import { createCouncilAgent } from './council';
 import { createCouncilMasterAgent } from './council-master';
 import { createCouncillorAgent } from './councillor';
@@ -111,6 +121,16 @@ const SUBAGENT_FACTORIES: Record<SubagentName, AgentFactory> = {
   council: createCouncilAgent,
   councillor: createCouncillorAgent,
   'council-master': createCouncilMasterAgent,
+  'bmad-orchestrator': createBmadOrchestratorAgent,
+  'bmad-analyst': createBmadAnalystAgent,
+  'bmad-writer': createBmadWriterAgent,
+  'bmad-pm': createBmadPmAgent,
+  'bmad-ux': createBmadUxAgent,
+  'bmad-architect': createBmadArchitectAgent,
+  'bmad-dev': createBmadDevAgent,
+  'bmad-reviewer': createBmadReviewerAgent,
+  'bmad-qa': createBmadQaAgent,
+  'bmad-sm': createBmadSmAgent,
 };
 
 // Public API
